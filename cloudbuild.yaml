@@ -5,7 +5,7 @@ steps:
       'build',
       '-t',
       'asia-northeast3-docker.pkg.dev/sleepr-418104/reservations/production',
-      '-f'
+      '-f',
       'apps/reservations/Dockerfile',
       '.'
     ]
@@ -19,7 +19,7 @@ steps:
       'build',
       '-t',
       'asia-northeast3-docker.pkg.dev/sleepr-418104/auth/production',
-      '-f'
+      '-f',
       'apps/auth/Dockerfile',
       '.'
     ]
@@ -33,7 +33,7 @@ steps:
       'build',
       '-t',
       'asia-northeast3-docker.pkg.dev/sleepr-418104/notifications/production',
-      '-f'
+      '-f',
       'apps/notifications/Dockerfile',
       '.'
     ]
@@ -47,7 +47,7 @@ steps:
       'build',
       '-t',
       'asia-northeast3-docker.pkg.dev/sleepr-418104/payments/production',
-      '-f'
+      '-f',
       'apps/payments/Dockerfile',
       '.'
     ]
