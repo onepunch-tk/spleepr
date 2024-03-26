@@ -9,7 +9,7 @@ import { Transport } from '@nestjs/microservices';
 async function bootstrap() {
   const app = await NestFactory.create(AuthModule);
   const configService = app.get(ConfigService);
-
+  console.log('서버 시작,,,');
   app.connectMicroservice({
     transport: Transport.TCP,
     options: { host: '0.0.0.0', port: configService.get('TCP_PORT') },
@@ -25,5 +25,6 @@ async function bootstrap() {
 
   await app.startAllMicroservices();
   await app.listen(configService.get('HTTP_PORT'));
+  console.log('stared server!1!');
 }
 bootstrap();
