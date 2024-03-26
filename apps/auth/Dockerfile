@@ -26,7 +26,8 @@ WORKDIR /usr/src/app
 COPY package.json ./
 COPY yarn.lock ./
 
-RUN yarn install --prod
+# 모든 의존성 설치 후 필요 없는 부분 제거
+RUN yarn install && yarn cache clean
 
 COPY --from=development /usr/src/app/dist ./dist
 
