@@ -12,6 +12,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [ 'push', 'asia-northeast3-docker.pkg.dev/sleepr-418104/reservations/production' ]
+
   # Auth
   - name: 'gcr.io/cloud-builders/docker'
     args: [
