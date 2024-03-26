@@ -3,6 +3,7 @@ FROM node:18.19.0-alpine As development
 WORKDIR /usr/src/app
 
 COPY package.json ./
+COPY yarn.lock ./
 COPY tsconfig.json tsconfig.json
 COPY nest-cli.json nest-cli.json
 
@@ -23,8 +24,10 @@ ENV NODE_ENV=${NODE_ENV}
 WORKDIR /usr/src/app
 
 COPY package.json ./
+COPY yarn.lock ./
 
 RUN yarn install --prod
+RUN yarn add semver
 
 COPY --from=development /usr/src/app/dist ./dist
 
