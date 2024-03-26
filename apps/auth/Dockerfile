@@ -1,4 +1,4 @@
-FROM node:alpine As development
+FROM node:18.19.0-alpine As development
 
 WORKDIR /usr/src/app
 
@@ -16,7 +16,7 @@ RUN cd apps/auth && yarn install
 
 RUN yarn build auth
 
-FROM node:alpine As production
+FROM node:18.19.0-alpine As production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
@@ -26,8 +26,7 @@ WORKDIR /usr/src/app
 COPY package.json ./
 COPY yarn.lock ./
 
-# 모든 의존성 설치 후 필요 없는 부분 제거
-RUN yarn install && yarn cache clean
+RUN yarn install --prod
 
 COPY --from=development /usr/src/app/dist ./dist
 

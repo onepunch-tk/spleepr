@@ -1,4 +1,4 @@
-FROM node:alpine As development
+FROM node:18.19.0-alpine As development
 
 WORKDIR /usr/src/app
 
@@ -16,7 +16,7 @@ RUN cd apps/payments && yarn install
 
 RUN yarn build payments
 
-FROM node:alpine As production
+FROM node:18.19.0-alpine As production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
