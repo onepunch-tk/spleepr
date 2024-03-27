@@ -1,4 +1,4 @@
-import { Controller, Post, Res, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Res, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { CurrentUser, UserDto } from '@app/common';
@@ -24,5 +24,10 @@ export class AuthController {
   @MessagePattern('authenticate')
   async authenticate(@Payload() data: any) {
     return data.user;
+  }
+
+  @Get('test')
+  async testFn() {
+    return true;
   }
 }

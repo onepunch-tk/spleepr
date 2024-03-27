@@ -20,3 +20,6 @@ spec:
                 name: auth-http
                 port:
                   number: 3001
+
+
+
