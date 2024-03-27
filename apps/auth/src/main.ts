@@ -9,7 +9,7 @@ import { Transport } from '@nestjs/microservices';
 async function bootstrap() {
   const app = await NestFactory.create(AuthModule);
   const configService = app.get(ConfigService);
-  console.log('서버 시작,,,');
+  console.log('build test');
   app.connectMicroservice({
     transport: Transport.TCP,
     options: { host: '0.0.0.0', port: configService.get('TCP_PORT') },
